@@ -1,7 +1,6 @@
-import { Header } from '@/components/header';
 import './globals.css';
-import Image from 'next/image';
-import bg_book from '@/assets/backgrounds/book.png';
+import { Header } from '@/components/header';
+import { BgImages } from '@/components/BgImages';
 
 export const metadata = {
   title: 'Shopping List Web App',
@@ -16,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
+        <BgImages />
         <div className='app'>
           <Header />
           {children}
