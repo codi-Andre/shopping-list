@@ -8,46 +8,48 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      
         blue: {
-        info: '#50F0FF',
-        1: '#A28BF1',
-        2: '#8061EB',
-        3: '#633DE5',
-        5: '#4519DE',
-        7: '#320CB4',
-      },
-      
-      green: {
-        success: '#00FF1F',
-        1: '#4EFF64',
-      },
+          info: '#50F0FF',
+          1: '#5C56C0',
+          2: '#3D36B3',
+          3: '#1F17A5',
+          5: '#171183',
+          7: '#0F0A66',
+        },
 
-      orange: {
-        1: '#FFD585',
-        2: '#FFC555',
-        3: '#FFB72B',
-        5: '#FFA900',
-      },
-      
-      purple: {
-        1: '#C783F0',
-        2: '#B357E9',
-        3: '#A131E3',
-        5: '#8E0CDB',
-        7: '#7005B0',
-      },
+        green: {
+          success: '#00FF1F',
+          1: '#4EFF64',
+        },
 
-      red: {
-        danger: '#FF0D00',
-      },
-      
-      yellow: {
-        warning: '#FFFD00',
-        1: '#FFFE85',
-        2: '#FFFE55',
-        3: '#FFFE2B',
-      }
+        orange: {
+          1: '#FFD95C',
+          2: '#FFCE30',
+          3: '#ECB500',
+          5: '#BC9000',
+          7: '#937000',
+        },
+
+        purple: {
+          1: '#814DBC',
+          2: '#692CAE',
+          3: '#520DA0',
+          5: '#40097F',
+          7: '#310563',
+        },
+
+        red: {
+          danger: '#FF0D00',
+        },
+
+        yellow: {
+          warning: '#FFFD00',
+          1: '#FFF35C',
+          2: '#FFF030',
+          3: '#ECDB00',
+          5: '#BCAE00',
+          7: '#938800',
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -57,4 +59,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
