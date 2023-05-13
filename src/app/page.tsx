@@ -58,29 +58,30 @@ export default function Home() {
   }
 
   return (
-    <main className="mt-2 flex flex-col gap-4 p-4">
+    <main className="mt-2 flex flex-col gap-4">
       <h2 className="text-center text-3xl">Quick List</h2>
-
-      <ul className="list-inside list-disc">
-        {list.map((item, index) => {
-          return (
-            <li
-              key={`${item.name}-${index}`}
-              className="list-item border-b-2 border-solid"
-            >
-              <span>{item.name}</span>
-              <span>{item.quantity}</span>
-              <span>{item.price}</span>
-              <button
-                title="delete item"
-                onClick={() => deleteItem(item, index)}
-              >
-                <Trash />
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      <table className="data_table">
+        <thead>
+          <tr>
+            <th>Items</th>
+            <th>quantity</th>
+            <th>price</th>
+            <th>total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((item, i) => {
+            return (
+              <tr key={`${item}-${i}`}>
+                <td>{item.name}</td>
+                <td>{item.quantity}</td>
+                <td>{item.price}</td>
+                <td>{`${item.price * item.quantity}`}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
 
       <form
         onSubmit={handleSubmit}
