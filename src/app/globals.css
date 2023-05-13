@@ -17,14 +17,14 @@
 }
 
 body {
-  color: #ece8e8;
-  background: #ecb500;
+  color: #fff;
+  background: #8f4500;
 }
 
 .app {
   position: relative;
 
-  max-width: 80rem;
+  max-width: 74rem;
   height: calc(100vh - 10rem);
 
   padding: 1rem;
