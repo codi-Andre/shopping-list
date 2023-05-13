@@ -1,7 +1,7 @@
 'use client'
 
-import { Trash } from 'lucide-react'
 import { FormEvent, useEffect, useRef, useState } from 'react'
+import { Trash } from 'lucide-react'
 
 interface ListItemData {
   [index: string]: string | number
@@ -58,15 +58,15 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col gap-4 p-4">
-      <h2 className="text-3xl">Quick List</h2>
+    <main className="mt-2 flex flex-col gap-4 p-4">
+      <h2 className="text-center text-3xl">Quick List</h2>
 
       <ul className="list-inside list-disc">
         {list.map((item, index) => {
           return (
             <li
               key={`${item.name}-${index}`}
-              className="list-item border-b-2 border-solid border-yellow-7"
+              className="list-item border-b-2 border-solid"
             >
               <span>{item.name}</span>
               <span>{item.quantity}</span>
@@ -82,45 +82,59 @@ export default function Home() {
         })}
       </ul>
 
-      <form onSubmit={handleSubmit} className="flex justify-center gap-4">
-        <input
-          className="rounded-md bg-yellow-5 p-2 placeholder:text-white"
-          ref={itemRef}
-          type="text"
-          placeholder="Item name"
-          name="name"
-        />
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col flex-nowrap items-center gap-4 lg:flex-row"
+      >
+        <label>
+          Item:{' '}
+          <input
+            id="name"
+            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            ref={itemRef}
+            type="text"
+            placeholder="e.g.: rice"
+            name="name"
+          />
+        </label>
 
-        <input
-          className="rounded-md bg-yellow-5 p-2 placeholder:text-white"
-          ref={quantityRef}
-          type="number"
-          placeholder="Item quantity"
-          name="quantity"
-        />
+        <label>
+          Quantity:{' '}
+          <input
+            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            ref={quantityRef}
+            type="number"
+            placeholder="e.g.: 2"
+            name="quantity"
+          />
+        </label>
+        <label>
+          Price:{' '}
+          <input
+            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            ref={priceRef}
+            type="number"
+            step="0.01" // allows two decimal places
+            placeholder="e.g.: 30"
+            name="price"
+          />
+        </label>
 
-        <input
-          className="rounded-md bg-yellow-5 p-2 placeholder:text-white"
-          ref={priceRef}
-          type="number"
-          step="0.01" // allows two decimal places
-          placeholder="Item price"
-          name="price"
-        />
-
-        <button
-          className="min-w-[4rem] rounded-md border-2 border-solid border-yellow-7 bg-yellow-5 p-2 hover:bg-yellow-7"
-          type="submit"
-          onClick={() => itemRef.current?.focus()}
-        >
-          Add
-        </button>
-        <button
-          className="min-w-[4rem] rounded-md border-2 border-solid border-yellow-7 bg-yellow-5 p-2 hover:bg-yellow-7"
-          type="reset"
-        >
-          Clear
-        </button>
+        <div className="flex gap-4">
+          <button
+            className="h-10 min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
+            type="submit"
+            onClick={() => itemRef.current?.focus()}
+          >
+            Add
+          </button>
+          <button
+            className="h-10 min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
+            type="reset"
+          >
+            Clear
+          </button>
+        </div>
       </form>
     </main>
   )
