@@ -63,20 +63,29 @@ export default function Home() {
       <table className="data_table">
         <thead>
           <tr>
-            <th>Items</th>
-            <th>quantity</th>
-            <th>price</th>
-            <th>total</th>
+            <th scope="col">Items</th>
+            <th scope="col">quantity</th>
+            <th scope="col">price</th>
+            <th scope="col">total</th>
+            <th scope="col">action</th>
           </tr>
         </thead>
         <tbody>
-          {list.map((item, i) => {
+          {list.map((item, index) => {
             return (
-              <tr key={`${item}-${i}`}>
+              <tr key={`${item}-${index}`}>
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
                 <td>{item.price}</td>
                 <td>{`${item.price * item.quantity}`}</td>
+                <td className="max-w-[8px]">
+                  <button
+                    title="Delete item"
+                    onClick={() => deleteItem(item, index)}
+                  >
+                    <Trash color="red"></Trash>
+                  </button>
+                </td>
               </tr>
             )
           })}
@@ -87,11 +96,10 @@ export default function Home() {
         onSubmit={handleSubmit}
         className="flex flex-col flex-nowrap items-center gap-4 lg:flex-row"
       >
-        <label>
+        <label className="rounded-md border-2 border-solid border-white bg-brown-5 ps-2">
           Item:{' '}
           <input
-            id="name"
-            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            className="rounded-r-md bg-brown-7 p-2 placeholder:text-brown-1"
             ref={itemRef}
             type="text"
             placeholder="e.g.: rice"
@@ -99,20 +107,20 @@ export default function Home() {
           />
         </label>
 
-        <label>
+        <label className="rounded-md border-2 border-solid border-white bg-brown-5 ps-2">
           Quantity:{' '}
           <input
-            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            className="rounded-r-md bg-brown-7 p-2 placeholder:text-brown-1"
             ref={quantityRef}
             type="number"
             placeholder="e.g.: 2"
             name="quantity"
           />
         </label>
-        <label>
+        <label className="rounded-md border-2 border-solid border-white bg-brown-5 ps-2">
           Price:{' '}
           <input
-            className="rounded-md bg-brown-7 p-2 placeholder:text-brown-1"
+            className="rounded-r-md bg-brown-7 p-2 placeholder:text-brown-1"
             ref={priceRef}
             type="number"
             step="0.01" // allows two decimal places
@@ -123,14 +131,14 @@ export default function Home() {
 
         <div className="flex gap-4">
           <button
-            className="h-10 min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
+            className="h-[2.625rem] min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
             type="submit"
             onClick={() => itemRef.current?.focus()}
           >
             Add
           </button>
           <button
-            className="h-10 min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
+            className="h-[2.625rem] min-w-[4rem] flex-1 rounded-md border-2 border-solid bg-brown-7 p-1 hover:bg-brown-5"
             type="reset"
           >
             Clear

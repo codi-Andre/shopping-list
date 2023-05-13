@@ -56,5 +56,13 @@ body {
 }
 
 .data_table td {
-  border-top: 4px solid #8f4500;
+  border-top: 3px solid #8f4500;
+}
+
+.data_table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.data_table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }
