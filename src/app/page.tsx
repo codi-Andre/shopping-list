@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import { Trash } from 'lucide-react'
+import { USDFormatter } from '@/utils/priceFormatter'
 
 interface ListItemData {
   [index: string]: string | number
@@ -60,41 +61,69 @@ export default function Home() {
   return (
     <main className="mt-2 flex flex-col gap-4">
       <h2 className="text-center text-3xl">Quick List</h2>
-      <table className="data_table">
-        <thead>
-          <tr>
-            <th scope="col">Items</th>
-            <th scope="col">quantity</th>
-            <th scope="col">price</th>
-            <th scope="col">total</th>
-            <th scope="col">action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {list.map((item, index) => {
-            return (
-              <tr key={`${item}-${index}`}>
-                <td>{item.name}</td>
-                <td>{item.quantity}</td>
-                <td>{item.price}</td>
-                <td>{`${item.price * item.quantity}`}</td>
-                <td className="max-w-[8px]">
-                  <button
-                    title="Delete item"
-                    onClick={() => deleteItem(item, index)}
-                  >
-                    <Trash color="red"></Trash>
-                  </button>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="data_table">
+          <thead>
+            <tr>
+              <th scope="col" className="rounded-tl-md">
+                Items
+              </th>
+              <th scope="col" className="max-w-min">
+                Quantity
+              </th>
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+              <th className="rounded-tr-md"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {list.map((item, index) => {
+              return (
+                <tr key={`${item}-${index}`}>
+                  <td>{item.name}</td>
+                  <td className="max-w-min">{item.quantity}</td>
+                  <td>{USDFormatter.format(item.price)}</td>
+                  <td>{USDFormatter.format(item.price * item.quantity)}</td>
+                  <td scope="row">
+                    <button
+                      title="Delete item"
+                      onClick={() => deleteItem(item, index)}
+                    >
+                      <Trash color="red"></Trash>
+                    </button>
+                  </td>
+                </tr>
+              )
+            })}
+            <tr>
+              <th
+                scope="row"
+                className="rounded-bl-md border-t-2 border-brown-3"
+              >
+                items on the list:
+              </th>
+              <td>{list.length}</td>
+              <th scope="row" className="border-t-2 border-brown-3">
+                Amount:
+              </th>
+              <td colSpan={2} className="rounded-br-md">
+                {USDFormatter.format(
+                  list.reduce(
+                    (accumulator, currentValue) =>
+                      accumulator +
+                      Number(currentValue.price * currentValue.quantity),
+                    0
+                  )
+                )}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col flex-nowrap items-center gap-4 lg:flex-row"
+        className="flex flex-col flex-nowrap items-center gap-4 self-center lg:flex-row"
       >
         <label className="rounded-md border-2 border-solid border-white bg-brown-5 ps-2">
           Item:{' '}
