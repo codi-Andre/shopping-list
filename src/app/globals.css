@@ -23,15 +23,22 @@ body {
 
 .app {
   position: relative;
-
+  height: 100vh;
   max-width: 74rem;
-  height: calc(100vh - 10rem);
 
+  margin: 0.1rem auto;
   padding: 1rem;
-  margin: 2rem auto;
 
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 480px) {
+  .app {
+    height: calc(100vh - 10rem);
+
+    margin: 2rem auto;
+  }
 }
 
 .data_table {
@@ -47,22 +54,6 @@ body {
   color: #8f4500;
 }
 
-.data_table th:first-child {
-  border-top-left-radius: 8px;
-}
-
-.data_table th:last-child {
-  border-top-right-radius: 8px;
-}
-
 .data_table td {
-  border-top: 3px solid #8f4500;
-}
-
-.data_table tr:last-child td:first-child {
-  border-bottom-left-radius: 8px;
-}
-
-.data_table tr:last-child td:last-child {
-  border-bottom-right-radius: 8px;
+  border-top: 2px solid #8f4500;
 }

@@ -22,13 +22,23 @@
   <a href="#how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;
 </p>
 
+### App screenshot
+
+<img alt="App screenshot desktop" src="./public/shopping-list.png">
+
+### App screenshot responsive design
+
+<img alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
+<img alt="App screenshot mobile(browser responsive design mode)" src="./public/shopping-list-m2.png">
+
 ## Technologies
 
 This project is under development with the following technologies:
 
--  [ReactJS](https://reactjs.org/)
--  [NextJS](https://nextjs.org/)
--  [TailwindCSS](https://tailwindcss.com/)
+- [ReactJS](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Lucide](https://lucide.dev/)
 
 ## How To Use
 
@@ -43,6 +53,5 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 
 Check out my [LinkedIn profile](https://www.linkedin.com/in/aegis-andre) - your feedback is welcome! if you like what i'm doing, let's work together.
