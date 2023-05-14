@@ -28,8 +28,10 @@
 
 ### App screenshot responsive design
 
-<img alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
-<img alt="App screenshot mobile(browser responsive design mode)" src="./public/shopping-list-m2.png">
+<div style="display: flex; gap: 8px;">
+  <img margin="auto" alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
+  <img alt="App screenshot mobile(browser responsive design mode)" src="./public/shopping-list-m2.png">
+</div>
 
 ## Technologies
 
