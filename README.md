@@ -28,8 +28,8 @@
 
 ### App screenshot responsive design
 
-<div style="display: flex; gap: 8px;">
-  <img margin="auto" alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
+<div style="display: flex; gap: 32px; justify-content: space-around;">
+  <img alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
   <img alt="App screenshot mobile(browser responsive design mode)" src="./public/shopping-list-m2.png">
 </div>
 
