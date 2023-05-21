@@ -1,8 +1,8 @@
 import './globals.css'
 import { Roboto } from 'next/font/google'
 
-import { Header } from '@/app/components/header'
-import { BgImages } from '@/app/components/BgImages'
+import { Header } from '@/components/header'
+import { BgImages } from '@/components/BgImages'
 
 export const metadata = {
   title: 'Shopping List Web App',

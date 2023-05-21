@@ -1,8 +1,8 @@
 'use client'
 
 import { FormEvent, useEffect, useRef, useState } from 'react'
-import { ItemsTable } from './components/ItemsTable'
-import { ItemsForm } from './components/ItemsForm'
+import { ItemsTable } from '@/components/ItemsTable'
+import { ItemsForm } from '@/components/ItemsForm'
 
 export interface ListItemData {
   [index: string]: string | number
@@ -26,14 +26,14 @@ export default function Home() {
     }
   }, [])
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const form = e.target as HTMLFormElement
+    const form = e.currentTarget
     const formData = new FormData(form)
     const listItem = Object.fromEntries(formData.entries()) as ListItemData
 
-    const updateList = [...list, { ...listItem }] //save in local storage before re-render
+    const updateList = [...list, { ...listItem }] // save in local storage before re-render
     localStorage.setItem(
       '@shopping-list:state-1.0.0',
       JSON.stringify(updateList)
