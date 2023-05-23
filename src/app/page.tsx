@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useEffect, useRef, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { ItemsTable } from '@/components/ItemsTable'
 import { ItemsForm } from '@/components/ItemsForm'
 
@@ -13,10 +13,6 @@ export interface ListItemData {
 }
 
 export default function Home() {
-  const itemRef = useRef<HTMLInputElement>(null)
-  const quantityRef = useRef<HTMLInputElement>(null)
-  const priceRef = useRef<HTMLInputElement>(null)
-
   const [list, setList] = useState<ListItemData[]>([])
 
   useEffect(() => {
@@ -41,9 +37,7 @@ export default function Home() {
 
     setList([...updateList])
 
-    itemRef.current!.value = ''
-    quantityRef.current!.value = ''
-    priceRef.current!.value = ''
+    e.currentTarget.reset()
   }
 
   function deleteItem(item: ListItemData, index: number) {
@@ -65,9 +59,6 @@ export default function Home() {
       <ItemsTable state={list} deleteItem={deleteItem} />
 
       <ItemsForm
-        itemRef={itemRef}
-        quantityRef={quantityRef}
-        priceRef={priceRef}
         handleSubmit={handleSubmit}
       />
     </main>
