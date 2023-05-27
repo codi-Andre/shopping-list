@@ -3,22 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 60, 21, 24;
+  --background-rgb: 242, 243, 174;
+  --secondary-rgb: 213, 137, 54;
+  --tertiary-rgb: 105, 20, 14;
+  --emphasis-rgb: 164, 66, 0;
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(var(--foreground-rgb));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 242, 243, 174;
+    --background-rgb: 60, 21, 24;
+    --secondary-rgb: 105, 20, 14;
+    --tertiary-rgb: 213, 137, 54;
+    --emphasis-rgb: 164, 66, 0;
+  }
+
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(var(--foreground-rgb));
   }
 }
 
 body {
-  color: #fff;
-  background: #8f4500;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 .app {
@@ -50,10 +64,8 @@ body {
 .data_table th,
 .data_table td {
   padding: 0.5rem;
-  background-color: #fff;
-  color: #8f4500;
 }
 
 .data_table td {
-  border-top: 2px solid #8f4500;
+  border-top: 2px solid rgb(var(--secondary-rgb));
 }

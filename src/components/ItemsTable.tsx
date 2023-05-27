@@ -1,5 +1,5 @@
 import { USDFormatter } from '@/utils/priceFormatter'
-import { Trash } from 'lucide-react'
+import { Trash2Icon } from 'lucide-react'
 
 import { ListItemData } from '@/app/page'
 interface DataProps {
@@ -37,18 +37,18 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                     title="Delete item"
                     onClick={() => deleteItem(item, index)}
                   >
-                    <Trash color="red"></Trash>
+                    <Trash2Icon className='dark:text-brown-Vanilla' />
                   </button>
                 </td>
               </tr>
             )
           })}
           <tr>
-            <th scope="row" className="rounded-bl-md border-t-2 border-brown-3">
+            <th scope="row" className="rounded-bl-md border-t-2 border-brown-bloodRed">
               Items on the list:
             </th>
             <td>{state.length}</td>
-            <th scope="row" className="border-t-2 border-brown-3">
+            <th scope="row" className="border-t-2 border-brown-bloodRed">
               Amount:
             </th>
             <td colSpan={2} className="rounded-br-md">
