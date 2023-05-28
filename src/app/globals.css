@@ -3,30 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 60, 21, 24;
-  --background-rgb: 242, 243, 174;
-  --secondary-rgb: 213, 137, 54;
-  --tertiary-rgb: 105, 20, 14;
+  --foreground-rgb: 242, 243, 174;
+  --background-rgb: 60, 21, 24;
+  --secondary-rgb: 105, 20, 14;
+  --tertiary-rgb: 213, 137, 54;
   --emphasis-rgb: 164, 66, 0;
 }
 
-:focus {
-  outline: 0;
-  box-shadow: 0 0 0 2px rgb(var(--foreground-rgb));
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 242, 243, 174;
-    --background-rgb: 60, 21, 24;
-    --secondary-rgb: 105, 20, 14;
-    --tertiary-rgb: 213, 137, 54;
+    --foreground-rgb: 60, 21, 24;
+    --background-rgb: 242, 243, 174;
+    --secondary-rgb: 213, 137, 54;
+    --tertiary-rgb: 105, 20, 14;
     --emphasis-rgb: 164, 66, 0;
-  }
-
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px rgb(var(--foreground-rgb));
   }
 }
 

@@ -8,9 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-
         blue: {
-          info: "#23b5d3",
+          info: '#23b5d3',
         },
 
         green: {
@@ -18,11 +17,11 @@ module.exports = {
         },
 
         brown: {
-          blackBean: "#3c1518",
-          bloodRed: "#69140e", 
-          neutro: "#a44200", 
-          bronze : "#d58936", 
-          Vanilla: "#f2f3ae"
+          blackBean: '#3c1518',
+          bloodRed: '#69140e',
+          neutral: '#a44200',
+          bronze: '#d58936',
+          Vanilla: '#f2f3ae',
         },
 
         red: {

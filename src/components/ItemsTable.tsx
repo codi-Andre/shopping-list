@@ -9,19 +9,19 @@ interface DataProps {
 
 export function ItemsTable({ state, deleteItem }: DataProps) {
   return (
-    <div className="overflow-x-auto">
-      <table className="data_table">
+    <div className='overflow-x-auto'>
+      <table className='data_table'>
         <thead>
           <tr>
-            <th scope="col" className="rounded-tl-md">
+            <th scope='col' className='rounded-tl-md'>
               Items
             </th>
-            <th scope="col" className="max-w-min">
+            <th scope='col' className='max-w-min'>
               Quantity
             </th>
-            <th scope="col">Price</th>
-            <th scope="col">Total</th>
-            <th className="rounded-tr-md"></th>
+            <th scope='col'>Price</th>
+            <th scope='col'>Total</th>
+            <th className='rounded-tr-md'></th>
           </tr>
         </thead>
         <tbody>
@@ -29,36 +29,42 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
             return (
               <tr key={`${item}-${index}`}>
                 <td>{item.name}</td>
-                <td className="max-w-min">{item.quantity}</td>
+                <td className='max-w-min'>{item.quantity}</td>
                 <td>{USDFormatter.format(item.price)}</td>
                 <td>{USDFormatter.format(item.price * item.quantity)}</td>
-                <td scope="row">
+                <td scope='row'>
                   <button
-                    title="Delete item"
+                    title='Delete item'
                     onClick={() => deleteItem(item, index)}
                   >
-                    <Trash2Icon className='dark:text-brown-Vanilla' />
+                    <Trash2Icon className='hover:text-red-danger dark:text-brown-Vanilla' />
                   </button>
                 </td>
               </tr>
             )
           })}
           <tr>
-            <th scope="row" className="rounded-bl-md border-t-2 border-brown-bloodRed">
+            <th
+              scope='row'
+              className='rounded-bl-md border-t-2 border-brown-bronze dark:border-brown-bloodRed'
+            >
               Items on the list:
             </th>
             <td>{state.length}</td>
-            <th scope="row" className="border-t-2 border-brown-bloodRed">
+            <th
+              scope='row'
+              className='border-t-2 border-brown-bronze dark:border-brown-bloodRed'
+            >
               Amount:
             </th>
-            <td colSpan={2} className="rounded-br-md">
+            <td colSpan={2} className='rounded-br-md'>
               {USDFormatter.format(
                 state.reduce(
                   (accumulator, currentValue) =>
                     accumulator +
                     Number(currentValue.price * currentValue.quantity),
-                  0
-                )
+                  0,
+                ),
               )}
             </td>
           </tr>
