@@ -1,11 +1,12 @@
 import { Header } from '@/components/Header'
 import { Main } from '@/components/Main'
+import { ToggleDarkMode } from '@/components/ToggleDarkMode'
 
 export default function Home() {
   return (
-    <div className={`app`}>
+    <ToggleDarkMode>
       <Header />
       <Main />
-    </div>
+    </ToggleDarkMode>
   )
 }

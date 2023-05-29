@@ -34,10 +34,11 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                 <td>{USDFormatter.format(item.price * item.quantity)}</td>
                 <td scope='row'>
                   <button
-                    title='Delete item'
+                    className='hover:text-red-danger dark:text-brown-Vanilla dark:hover:text-red-danger'
+                    aria-label='delete item'
                     onClick={() => deleteItem(item, index)}
                   >
-                    <Trash2Icon className='hover:text-red-danger dark:text-brown-Vanilla' />
+                    <Trash2Icon />
                   </button>
                 </td>
               </tr>
