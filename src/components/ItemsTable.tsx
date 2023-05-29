@@ -1,7 +1,7 @@
 import { USDFormatter } from '@/utils/priceFormatter'
 import { Trash2Icon } from 'lucide-react'
+import { ListItemData } from '@/entities/listItem'
 
-import { ListItemData } from '@/app/page'
 interface DataProps {
   state: ListItemData[]
   deleteItem: (item: ListItemData, index: number) => void
@@ -63,8 +63,8 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                   (accumulator, currentValue) =>
                     accumulator +
                     Number(currentValue.price * currentValue.quantity),
-                  0,
-                ),
+                  0
+                )
               )}
             </td>
           </tr>
