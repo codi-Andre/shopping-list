@@ -1,9 +1,6 @@
 import './globals.css'
 import { Roboto } from 'next/font/google'
 
-import { Header } from '@/components/header'
-import { BgImages } from '@/components/BgImages'
-
 export const metadata = {
   title: 'Shopping List Web App',
   description: 'Plan ahead results in time save and better prices',
@@ -21,13 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`${fontFamily.className} `}>
-      <body>
-        {/* <BgImages /> */}
-        <div className='app'>
-          <Header />
-          {children}
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
