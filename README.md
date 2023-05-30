@@ -22,16 +22,12 @@
   <a href="#how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;
 </p>
 
-### App screenshot
+<h2 align="center">App screenshot</h2>
 
-<img alt="App screenshot desktop" src="./public/shopping-list.png">
-
-### App screenshot responsive design
-
-<div style="display: flex; gap: 32px; justify-content: space-around;">
-  <img alt="App screenshot responsive design" src="./public/shopping-list-m1.png">
-  <img alt="App screenshot mobile(browser responsive design mode)" src="./public/shopping-list-m2.png">
-</div>
+<p align="center">
+  <img alt="App screenshot desktop" src="./public/shopping-list-desktop.png">
+  <img alt="App screenshot responsive design" src="./public/shopping-list-responsive.png">
+</p>
 
 ## Technologies
 
