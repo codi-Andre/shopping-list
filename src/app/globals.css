@@ -2,39 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --secondary-rgb: 105, 20, 14;
-}
+@layer base {
+  .app {
+    height: 100vh;
+    width: 100vw;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --secondary-rgb: 213, 137, 54;
+    display: grid;
+    grid-template-columns: minmax(min-content, 74rem);
+    grid-template-rows: min-content;
+
+    justify-content: center;
   }
-}
 
-.app {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+  .data_table {
+    @apply w-full border-collapse text-center;
+  }
 
-  display: grid;
-  grid-template-columns: minmax(min-content, 74rem);
-  grid-template-rows: min-content;
+  .data_table th,
+  .data_table td {
+    @apply p-2;
+  }
 
-  justify-content: center;
-}
-
-.data_table {
-  text-align: center;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.data_table th,
-.data_table td {
-  padding: 0.5rem;
-}
-
-.data_table td {
-  border-top: 2px solid rgb(var(--secondary-rgb));
+  .data_table td {
+    @apply border-t-2 border-solid border-brown-bronze dark:border-brown-bloodRed;
+  }
 }
