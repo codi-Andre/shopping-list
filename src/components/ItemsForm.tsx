@@ -10,7 +10,7 @@ export function ItemsForm({ handleSubmit }: DataProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex flex-col flex-nowrap items-center gap-4 self-center lg:flex-row'
+      className='flex flex-col items-center gap-4 self-center lg:flex-row'
     >
       <label className='rounded-md border-2 border-solid border-brown-bronze bg-brown-blackBean ps-2 text-brown-Vanilla dark:border-brown-bloodRed dark:bg-brown-Vanilla dark:text-brown-blackBean'>
         Item:{' '}
@@ -27,20 +27,24 @@ export function ItemsForm({ handleSubmit }: DataProps) {
       <label className='rounded-md border-2 border-solid border-brown-bronze bg-brown-blackBean ps-2 text-brown-Vanilla dark:border-brown-bloodRed dark:bg-brown-Vanilla dark:text-brown-blackBean'>
         Quantity:{' '}
         <input
-          className='rounded-r-md bg-brown-blackBean p-2 text-brown-Vanilla placeholder:text-brown-bronze dark:bg-brown-Vanilla dark:text-brown-blackBean dark:placeholder:text-brown-bronze'
+          className='max-w-[5rem] rounded-r-md bg-brown-blackBean p-2 text-brown-Vanilla placeholder:text-brown-bronze dark:bg-brown-Vanilla dark:text-brown-blackBean dark:placeholder:text-brown-bronze'
           type='number'
           placeholder='e.g.: 2'
           name='quantity'
+          min={0}
+          max={999}
         />
       </label>
       <label className='rounded-md border-2 border-solid border-brown-bronze bg-brown-blackBean ps-2 text-brown-Vanilla dark:border-brown-bloodRed dark:bg-brown-Vanilla dark:text-brown-blackBean'>
         Price:{' '}
         <input
-          className='rounded-r-md bg-brown-blackBean p-2 text-brown-Vanilla placeholder:text-brown-bronze dark:bg-brown-Vanilla dark:text-brown-blackBean dark:placeholder:text-brown-bronze'
+          className='max-w-[7rem] rounded-r-md bg-brown-blackBean p-2 text-brown-Vanilla placeholder:text-brown-bronze dark:bg-brown-Vanilla dark:text-brown-blackBean dark:placeholder:text-brown-bronze'
           type='number'
           step='0.01' // allows two decimal places
           placeholder='e.g.: 30'
           name='price'
+          min={0}
+          max={1000000}
         />
       </label>
 

@@ -46,7 +46,7 @@ export function Main() {
   }
 
   return (
-    <main className='mt-2 flex flex-col gap-4'>
+    <main className='display mt-2 flex flex-col gap-4'>
       <h2 className='text-center text-3xl'>Quick List</h2>
 
       <ItemsTable state={list} deleteItem={deleteItem} />

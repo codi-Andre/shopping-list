@@ -9,7 +9,7 @@ interface DataProps {
 
 export function ItemsTable({ state, deleteItem }: DataProps) {
   return (
-    <div className='overflow-x-auto'>
+    <div className='overflow-y-auto'>
       <table className='data_table'>
         <thead>
           <tr>
