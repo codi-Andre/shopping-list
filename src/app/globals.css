@@ -4,14 +4,15 @@
 
 @layer base {
   .app {
-    height: 100vh;
-    width: 100vw;
-
     display: grid;
     grid-template-columns: minmax(min-content, 74rem);
     grid-template-rows: min-content;
 
     justify-content: center;
+  }
+
+  .display {
+    max-height: calc(100vh - 156px - 16px);
   }
 
   .data_table {

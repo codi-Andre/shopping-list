@@ -37,6 +37,7 @@ This project is under development with the following technologies:
 - [NextJS](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Lucide](https://lucide.dev/)
+- [NanoId](https://github.com/ai/nanoid)
 
 ## How To Use
 

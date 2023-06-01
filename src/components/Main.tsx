@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { ItemsForm } from './ItemsForm'
 import { ItemsTable } from './ItemsTable'
 import { ListItemData } from '@/entities/listItem'
+import { nanoid } from 'nanoid'
 
 export function Main() {
   const [list, setList] = useState<ListItemData[]>([])
@@ -21,6 +22,7 @@ export function Main() {
     const form = e.currentTarget
     const formData = new FormData(form)
     const listItem = Object.fromEntries(formData.entries()) as ListItemData
+    listItem.id = nanoid()
 
     const updateList = [...list, { ...listItem }] // save in local storage before re-render
     localStorage.setItem(
@@ -33,10 +35,8 @@ export function Main() {
     e.currentTarget.reset()
   }
 
-  function deleteItem(item: ListItemData, index: number) {
-    const updateList = list.filter(
-      (listItem, i) => listItem.name !== item.name && i !== index
-    )
+  function deleteItem(itemId: string) {
+    const updateList = list.filter((listItem) => listItem.id !== itemId)
 
     localStorage.setItem(
       '@shopping-list:state-1.0.0',
@@ -46,7 +46,7 @@ export function Main() {
   }
 
   return (
-    <main className='mt-2 flex flex-col gap-4'>
+    <main className='display mt-2 flex flex-col gap-4'>
       <h2 className='text-center text-3xl'>Quick List</h2>
 
       <ItemsTable state={list} deleteItem={deleteItem} />
