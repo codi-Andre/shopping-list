@@ -4,7 +4,7 @@ import { ListItemData } from '@/entities/listItem'
 
 interface DataProps {
   state: ListItemData[]
-  deleteItem: (item: ListItemData, index: number) => void
+  deleteItem: (id: string) => void
 }
 
 export function ItemsTable({ state, deleteItem }: DataProps) {
@@ -25,9 +25,9 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
           </tr>
         </thead>
         <tbody>
-          {state.map((item, index) => {
+          {state.map((item) => {
             return (
-              <tr key={`${item}-${index}`}>
+              <tr key={item.id}>
                 <td>{item.name}</td>
                 <td className='max-w-min'>{item.quantity}</td>
                 <td>{USDFormatter.format(item.price)}</td>
@@ -36,7 +36,7 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                   <button
                     className='hover:text-red-danger dark:text-brown-Vanilla dark:hover:text-red-danger'
                     aria-label='delete item'
-                    onClick={() => deleteItem(item, index)}
+                    onClick={() => deleteItem(item.id)}
                   >
                     <Trash2Icon />
                   </button>
