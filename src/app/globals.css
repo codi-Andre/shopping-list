@@ -25,6 +25,6 @@
   }
 
   .data_table td {
-    @apply border-t-2 border-solid border-brown-bronze dark:border-brown-bloodRed;
+    @apply border-t-2 border-solid border-gray-lavenderDark dark:border-black-eerieBlack;
   }
 }

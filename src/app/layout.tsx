@@ -1,14 +1,14 @@
-import './globals.css'
-import { Roboto } from 'next/font/google'
+import "./globals.css"
+import { Roboto } from "next/font/google"
 
 export const metadata = {
-  title: 'Shopping List Web App',
-  description: 'Plan ahead results in time save and better prices',
+  title: "Shopping List Web App",
+  description: "Plan ahead results in time save and better prices",
 }
 
 const fontFamily = Roboto({
-  subsets: ['latin'],
-  weight: '500',
+  subsets: ["latin"],
+  weight: "500",
 })
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`${fontFamily.className} dark`}>
-      <body className='bg-brown-Vanilla p-4 text-brown-blackBean dark:bg-brown-blackBean dark:text-brown-Vanilla'>
+      <body className='bg-gray-lavenderLight p-4 text-black-night dark:bg-black-night dark:text-gray-lavenderLight'>
         {children}
       </body>
     </html>

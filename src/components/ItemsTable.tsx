@@ -1,6 +1,6 @@
-import { USDFormatter } from '@/utils/priceFormatter'
-import { Trash2Icon } from 'lucide-react'
-import { ListItemData } from '@/entities/listItem'
+import { USDFormatter } from "@/utils/priceFormatter"
+import { Trash2Icon } from "lucide-react"
+import { ListItemData } from "@/entities/listItem"
 
 interface DataProps {
   state: ListItemData[]
@@ -34,7 +34,7 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                 <td>{USDFormatter.format(item.price * item.quantity)}</td>
                 <td scope='row'>
                   <button
-                    className='hover:text-red-danger dark:text-brown-Vanilla dark:hover:text-red-danger'
+                    className='hover:text-red-danger dark:text-gray-lavenderLight dark:hover:text-red-danger'
                     aria-label='delete item'
                     onClick={() => deleteItem(item.id)}
                   >
@@ -47,14 +47,14 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
           <tr>
             <th
               scope='row'
-              className='rounded-bl-md border-t-2 border-brown-bronze dark:border-brown-bloodRed'
+              className='rounded-bl-md border-t-2 border-gray-lavenderDark dark:border-black-eerieBlack'
             >
               Items on the list:
             </th>
             <td>{state.length}</td>
             <th
               scope='row'
-              className='border-t-2 border-brown-bronze dark:border-brown-bloodRed'
+              className='border-t-2 border-gray-lavenderDark dark:border-black-eerieBlack'
             >
               Amount:
             </th>
