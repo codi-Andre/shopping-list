@@ -1,33 +1,36 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
 
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
+        black: {
+          night: "#151515",
+          eerieBlack: "#202021",
+        },
+
         blue: {
-          info: '#23b5d3',
+          info: "#23b5d3",
+        },
+
+        gray: {
+          lavenderLight: "#eeeeff",
+          lavenderDark: "#e2e2f2",
         },
 
         green: {
-          success: '#00FF1F',
-        },
-
-        brown: {
-          blackBean: '#3c1518',
-          bloodRed: '#69140e',
-          neutral: '#a44200',
-          bronze: '#d58936',
-          Vanilla: '#f2f3ae',
+          success: "#00FF1F",
+          malachite: "#0fe66c",
         },
 
         red: {
-          danger: '#FF0D00',
+          danger: "#FF0D00",
         },
       },
     },

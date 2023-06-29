@@ -1,16 +1,16 @@
-'use client'
+"use client"
 
-import { FormEvent, useEffect, useState } from 'react'
-import { ItemsForm } from './ItemsForm'
-import { ItemsTable } from './ItemsTable'
-import { ListItemData } from '@/entities/listItem'
-import { nanoid } from 'nanoid'
+import { FormEvent, useEffect, useState } from "react"
+import { ItemsForm } from "./ItemsForm"
+import { ItemsTable } from "./ItemsTable"
+import { ListItemData } from "@/entities/listItem"
+import { nanoid } from "nanoid"
 
 export function Main() {
   const [list, setList] = useState<ListItemData[]>([])
 
   useEffect(() => {
-    const localList = localStorage.getItem('@shopping-list:state-1.0.0')
+    const localList = localStorage.getItem("@shopping-list:state-1.0.0")
     if (localList) {
       setList([...JSON.parse(localList)])
     }
@@ -26,7 +26,7 @@ export function Main() {
 
     const updateList = [...list, { ...listItem }] // save in local storage before re-render
     localStorage.setItem(
-      '@shopping-list:state-1.0.0',
+      "@shopping-list:state-1.0.0",
       JSON.stringify(updateList)
     )
 
@@ -39,14 +39,14 @@ export function Main() {
     const updateList = list.filter((listItem) => listItem.id !== itemId)
 
     localStorage.setItem(
-      '@shopping-list:state-1.0.0',
+      "@shopping-list:state-1.0.0",
       JSON.stringify(updateList)
     )
     setList([...updateList])
   }
 
   return (
-    <main className='display mt-2 flex flex-col gap-4'>
+    <main className='display mt-2 flex flex-col gap-4 bg-gray-lavenderDark dark:bg-black-eerieBlack'>
       <h2 className='text-center text-3xl'>Quick List</h2>
 
       <ItemsTable state={list} deleteItem={deleteItem} />
