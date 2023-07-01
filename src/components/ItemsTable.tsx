@@ -9,7 +9,7 @@ interface DataProps {
 
 export function ItemsTable({ state, deleteItem }: DataProps) {
   return (
-    <div className='overflow-y-auto'>
+    <div className='overflow-y-auto rounded-md bg-white-babyPowder dark:bg-black-eerieBlack'>
       <table className='data_table'>
         <thead>
           <tr>
@@ -34,7 +34,7 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
                 <td>{USDFormatter.format(item.price * item.quantity)}</td>
                 <td scope='row'>
                   <button
-                    className='hover:text-red-danger dark:text-gray-lavenderLight dark:hover:text-red-danger'
+                    className='hover:text-red-danger dark:text-white-babyPowder dark:hover:text-red-danger'
                     aria-label='delete item'
                     onClick={() => deleteItem(item.id)}
                   >
@@ -47,14 +47,14 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
           <tr>
             <th
               scope='row'
-              className='rounded-bl-md border-t-2 border-gray-lavenderDark dark:border-black-eerieBlack'
+              className='rounded-bl-md border-t-2 border-white-platinum dark:border-black-jet'
             >
               Items on the list:
             </th>
             <td>{state.length}</td>
             <th
               scope='row'
-              className='border-t-2 border-gray-lavenderDark dark:border-black-eerieBlack'
+              className='border-t-2 border-white-platinum dark:border-black-jet'
             >
               Amount:
             </th>
