@@ -9,24 +9,31 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "img-header": "url('../assets/bg-header.svg')",
+      },
       colors: {
         black: {
           night: "#151515",
           eerieBlack: "#202021",
+          jet: "#303031",
         },
 
         blue: {
           info: "#23b5d3",
         },
 
-        gray: {
-          lavenderLight: "#eeeeff",
-          lavenderDark: "#e2e2f2",
+        white: {
+          babyPowder: "#fdfffc",
+          whiteSmoke: "#eef0ed",
+          platinum: "#dee0dd",
+          silver: "#bec0be",
         },
 
         green: {
           success: "#00FF1F",
           malachite: "#0fe66c",
+          malachiteDark: "#00a648",
         },
 
         red: {
