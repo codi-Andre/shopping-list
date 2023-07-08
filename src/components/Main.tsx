@@ -1,7 +1,7 @@
 "use client"
 
 import { FormEvent, useEffect, useState } from "react"
-import { ItemsForm } from "./ItemsForm"
+import { PopoverForm } from "./PopoverForm"
 import { ItemsTable } from "./ItemsTable"
 import { ListItemData } from "@/entities/listItem"
 import { nanoid } from "nanoid"
@@ -46,12 +46,10 @@ export function Main() {
   }
 
   return (
-    <main className='display mt-2 flex flex-col gap-4 '>
-      <h2 className='text-center text-3xl'>Quick List</h2>
-
+    <main className='app_content'>
       <ItemsTable state={list} deleteItem={deleteItem} />
 
-      <ItemsForm handleSubmit={handleSubmit} />
+      <PopoverForm handleSubmit={handleSubmit} />
     </main>
   )
 }

@@ -9,19 +9,15 @@ interface DataProps {
 
 export function ItemsTable({ state, deleteItem }: DataProps) {
   return (
-    <div className='overflow-y-auto rounded-md bg-white-babyPowder dark:bg-black-eerieBlack'>
-      <table className='data_table'>
+    <div className='data_table'>
+      <table>
         <thead>
           <tr>
-            <th scope='col' className='rounded-tl-md'>
-              Items
-            </th>
-            <th scope='col' className='max-w-min'>
-              Quantity
-            </th>
+            <th scope='col'>Items</th>
+            <th scope='col'>Quantity</th>
             <th scope='col'>Price</th>
             <th scope='col'>Total</th>
-            <th className='rounded-tr-md'></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -29,13 +25,12 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
             return (
               <tr key={item.id}>
                 <td>{item.name}</td>
-                <td className='max-w-min'>{item.quantity}</td>
+                <td>{item.quantity}</td>
                 <td>{USDFormatter.format(item.price)}</td>
                 <td>{USDFormatter.format(item.price * item.quantity)}</td>
                 <td scope='row'>
                   <button
-                    className='hover:text-red-danger dark:text-white-babyPowder dark:hover:text-red-danger'
-                    aria-label='delete item'
+                    title={`delete ${item.name}`}
                     onClick={() => deleteItem(item.id)}
                   >
                     <Trash2Icon />
@@ -44,21 +39,13 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
               </tr>
             )
           })}
+        </tbody>
+        <tfoot>
           <tr>
-            <th
-              scope='row'
-              className='rounded-bl-md border-t-2 border-white-platinum dark:border-black-jet'
-            >
-              Items on the list:
-            </th>
+            <th scope='row'>Items on the list:</th>
             <td>{state.length}</td>
-            <th
-              scope='row'
-              className='border-t-2 border-white-platinum dark:border-black-jet'
-            >
-              Amount:
-            </th>
-            <td colSpan={2} className='rounded-br-md'>
+            <th scope='row'>Amount:</th>
+            <td colSpan={2}>
               {USDFormatter.format(
                 state.reduce(
                   (accumulator, currentValue) =>
@@ -69,7 +56,7 @@ export function ItemsTable({ state, deleteItem }: DataProps) {
               )}
             </td>
           </tr>
-        </tbody>
+        </tfoot>
       </table>
     </div>
   )
