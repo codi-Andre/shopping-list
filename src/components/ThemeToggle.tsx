@@ -32,7 +32,7 @@ export function ThemeToggle() {
       className='absolute right-0 top-0 '
       onClick={ToggleDarkMode}
     >
-      <span className='inline-block rounded-bl-3xl bg-white-silver p-1 text-white-babyPowder hover:text-green-malachiteDark dark:hidden'>
+      <span className='inline-block rounded-bl-3xl bg-white-babyPowder p-1 text-black-night hover:text-green-malachiteDark dark:hidden'>
         <SunIcon aria-label='light theme' size={32} />
       </span>
       <span className='tag hidden rounded-bl-3xl bg-black-night p-1 text-white-babyPowder hover:text-green-malachite dark:inline-block'>

@@ -36,6 +36,7 @@ This project is under development with the following technologies:
 - [ReactJS](https://reactjs.org/)
 - [NextJS](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
+- [Radix-UI](https://www.radix-ui.com/)
 - [Lucide](https://lucide.dev/)
 - [NanoId](https://github.com/ai/nanoid)
 

@@ -9,9 +9,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        "focus-hover": "0 0 0 2px #ff4311",
+      },
+
       backgroundImage: {
         "img-header": "url('../assets/bg-header.svg')",
       },
+
       colors: {
         black: {
           night: "#151515",
@@ -38,6 +43,7 @@ module.exports = {
 
         red: {
           danger: "#FF0D00",
+          accent: "#ff4311",
         },
       },
     },
