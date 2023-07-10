@@ -1,10 +1,10 @@
 "use client"
 
 import { FormEvent, useEffect, useState } from "react"
-import { PopoverForm } from "./PopoverForm"
 import { ItemsTable } from "./ItemsTable"
 import { ListItemData } from "@/entities/listItem"
 import { nanoid } from "nanoid"
+import { RenderForm } from "./FormControls/RenderForm"
 
 export function Main() {
   const [list, setList] = useState<ListItemData[]>([])
@@ -49,7 +49,7 @@ export function Main() {
     <main className='app_content'>
       <ItemsTable state={list} deleteItem={deleteItem} />
 
-      <PopoverForm handleSubmit={handleSubmit} />
+      <RenderForm handleForm={handleSubmit} />
     </main>
   )
 }
