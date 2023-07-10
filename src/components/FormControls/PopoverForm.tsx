@@ -1,19 +1,19 @@
 import { FormEvent, useRef } from "react"
 import * as Popover from "@radix-ui/react-popover"
-import { ChevronDown, X } from "lucide-react"
+import { X } from "lucide-react"
 
-interface DataProps {
+interface FormProps {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
-export function PopoverForm({ handleSubmit }: DataProps) {
+export function PopoverForm({ handleSubmit }: FormProps) {
   const itemRef = useRef<HTMLInputElement>(null)
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className='mb-4 h-10 min-w-[120px] rounded-full bg-green-malachite hover:bg-green-malachiteDark dark:bg-green-malachiteDark hover:dark:bg-green-800'
+          className='mb-4 mt-2 h-10 min-w-[120px] rounded-full bg-green-malachite hover:bg-green-malachiteDark dark:bg-green-malachiteDark hover:dark:bg-green-800'
           aria-label='add new item'
         >
           new item
@@ -22,14 +22,18 @@ export function PopoverForm({ handleSubmit }: DataProps) {
       <Popover.Anchor />
       <Popover.Portal>
         <Popover.Content
+          onOpenAutoFocus={(e) => {
+            e.preventDefault()
+            itemRef.current?.focus()
+          }}
           side='top'
           sideOffset={64}
           className='flex flex-col rounded-lg border-2 border-solid border-white-silver bg-white-babyPowder text-black-night dark:bg-black-night dark:text-white-babyPowder'
         >
-          <Popover.Close className='self-end p-1'>
+          <Popover.Close className='self-end p-1 active:bg-transparent active:text-red-accent'>
             <X size={20} />
           </Popover.Close>
-          <form className='app_popover' onSubmit={handleSubmit}>
+          <form className='app_popover_form' onSubmit={handleSubmit}>
             <label htmlFor='item-list'>Item: </label>
             <input
               id='item-list'
@@ -62,14 +66,14 @@ export function PopoverForm({ handleSubmit }: DataProps) {
 
             <div className='col-span-2 flex justify-around'>
               <button
-                className='w-20 rounded-full shadow-[0_0_0_2px_#bec0be] hover:shadow-focus-hover'
+                className='w-20 rounded-full shadow-[0_0_0_2px_#bec0be] hover:shadow-focus-hover focus:shadow-focus-hover'
                 type='submit'
                 onClick={() => itemRef.current?.focus()}
               >
                 Add
               </button>
               <button
-                className='w-20 rounded-full shadow-[0_0_0_2px_#bec0be] hover:shadow-focus-hover'
+                className='w-20 rounded-full shadow-[0_0_0_2px_#bec0be] hover:shadow-focus-hover focus:shadow-focus-hover'
                 type='reset'
               >
                 Clear

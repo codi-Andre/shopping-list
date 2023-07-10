@@ -29,13 +29,13 @@ export function ThemeToggle() {
   return (
     <button
       aria-label='toggle theme'
-      className='absolute right-0 top-0 '
+      className='absolute right-0 top-0 active:bg-transparent'
       onClick={ToggleDarkMode}
     >
-      <span className='inline-block rounded-bl-3xl bg-white-babyPowder p-1 text-black-night hover:text-green-malachiteDark dark:hidden'>
+      <span className='inline-block rounded-bl-3xl bg-white-babyPowder p-1 text-black-night hover:text-green-malachiteDark active:text-red-accent dark:hidden'>
         <SunIcon aria-label='light theme' size={32} />
       </span>
-      <span className='tag hidden rounded-bl-3xl bg-black-night p-1 text-white-babyPowder hover:text-green-malachite dark:inline-block'>
+      <span className='tag hidden rounded-bl-3xl bg-black-night p-1 text-white-babyPowder hover:text-green-malachite active:text-red-accent dark:inline-block'>
         <MoonStarIcon aria-label='dark theme' size={32} />
       </span>
     </button>
