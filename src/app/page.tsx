@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header"
+import { Presentation } from "@/components/Presentation"
 import { Main } from "@/components/Main"
 
 export default function Home() {
   return (
     <div className='app'>
-      <Header />
+      <Presentation />
       <Main />
     </div>
   )
