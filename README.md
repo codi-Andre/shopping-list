@@ -26,8 +26,8 @@
 
 <p align="center">
   <img alt="App screenshot desktop" src="./public/desktop_screenshot.jpg">
-  <img alt="App screenshot 1 responsive design" src="./public/mobile_screenshot1.jpg">
-  <img alt="App screenshot 2 responsive design" src="./public/mobile_screenshot2.jpg">
+  <img alt="App screenshot 1 responsive design" src="./public/mobile_screenshot1.png">
+  <img alt="App screenshot 2 responsive design" src="./public/mobile_screenshot2.png">
 </p>
 
 ## Technologies

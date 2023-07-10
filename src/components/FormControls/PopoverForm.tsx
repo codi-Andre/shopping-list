@@ -64,7 +64,7 @@ export function PopoverForm({ handleSubmit }: FormProps) {
               max={1000000}
             />
 
-            <div className='col-span-2 flex justify-around'>
+            <div className='col-span-2 flex justify-center gap-8'>
               <button
                 className='w-20 rounded-full shadow-[0_0_0_2px_#bec0be] hover:shadow-focus-hover focus:shadow-focus-hover'
                 type='submit'
