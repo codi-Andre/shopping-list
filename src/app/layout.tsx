@@ -8,8 +8,8 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Shopping list with ReactJS + Redux",
-  description: "Just to study and compare with others frameworks"
+  title: "Shopping list",
+  description: "An app just to study and compare frameworks"
 }
 
 export default function RootLayout({
