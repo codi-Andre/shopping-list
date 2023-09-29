@@ -3,9 +3,115 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-text: #000503;
+    --color-background: #f5fffb;
+    --color-primary: #02de91;
+    --color-secondary: #b4fee4;
+    --color-accent: #02e394;
+  }
+  .dark {
+    --color-text: #fafffd;
+    --color-background: #000a06;
+    --color-primary: #21fdb0;
+    --color-secondary: #014b31;
+    --color-accent: #1cfdae;
+  }
+
+  html {
+    @apply text-sm;
+  }
+
+  h2 {
+    @apply text-lg font-medium;
+  }
+
+  h3 {
+    @apply text-base font-medium;
+  }
+
+  /* xs */
+  @media (min-width: 480px) {
+    html {
+      @apply text-base;
+    }
+
+    h2 {
+      @apply text-xl;
+    }
+
+    h3 {
+      @apply text-lg;
+    }
+  }
+
+  /* lg */
+  @media (min-width: 1024px) {
+    html {
+      @apply text-lg;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+  }
+
+  /* xl */
+  @media (min-width: 1280px) {
+    html {
+      @apply text-xl;
+    }
+
+    h2 {
+      @apply text-3xl;
+    }
+
+    h3 {
+      @apply text-2xl;
+    }
+  }
 }
 
 @layer components {
+  .btn {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px var(--color-secondary);
+    transition: translate 0.5s;
+  }
+
+  .btn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .btn span::after {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+  }
+
+  .btn:hover span {
+    padding-right: 1rem;
+  }
+
+  .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .btn:active {
+    box-shadow: 0 2px var(--color-accent);
+    transform: translateY(2px);
+  }
 }
 
 @layer utilities {
