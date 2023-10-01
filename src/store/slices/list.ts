@@ -1,11 +1,12 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { nanoid } from "nanoid/non-secure"
+import { formatUserInput } from "./list.utils"
 
-interface Product {
+export interface Product {
   id: string
   name: string
   quantity?: number
   price: number
-  category?: string
   checked: boolean
 }
 
@@ -24,32 +25,34 @@ const initialState: ListState = {
 }
 
 export const loadList = createAsyncThunk("list/load", async () => {
-  let delay
-  const response = await new Promise((resolve) => {
-    let data = localStorage.getItem("shopping-list-redux:state-1.0")
-    data = JSON.parse(data || "")
+  const delay = new Promise<string>((resolve) => setTimeout(resolve, 2000))
+  await delay
 
-    delay = setTimeout(() => resolve(data), 5000)
-  })
+  const data = JSON.parse(
+    localStorage.getItem("shopping-list-redux:state-1.0") || ""
+  )
+  if (!data) return [] as Product[]
 
-  clearTimeout(delay)
-
-  if (!response) return []
-
-  return response as Product[]
+  return data as Product[]
 })
 
 export const listSlice = createSlice({
   name: "list",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Product>) => {
-      state.items = [...state.items, action.payload]
-      state.total = state.total + action.payload.price
+    add: (state, action: PayloadAction<Record<string, string>>) => {
+      const userInput = formatUserInput(action.payload)
 
-      if (action.payload.checked) {
-        state.marked = state.marked + action.payload.price
+      const newProduct = {
+        id: nanoid(),
+        name: userInput.name || "Invalid",
+        quantity: userInput.quantity || 1,
+        price: userInput.price || 0,
+        checked: false
       }
+
+      state.items = [...state.items, newProduct]
+      state.total = state.total + newProduct.price
 
       localStorage.setItem(
         "shopping-list-redux:state-1.0",
@@ -72,9 +75,21 @@ export const listSlice = createSlice({
       )
     },
     mark: (state, action: PayloadAction<string>) => {
-      const value = state.items.find((product) => product.id === action.payload)
+      const value = state.items.findIndex(
+        (product) => product.id === action.payload
+      )
 
-      if (value) state.marked = state.marked + value?.price
+      if (value < 0) {
+        return
+      }
+
+      state.items[value].checked = !state.items[value].checked
+
+      if (state.items[value].checked) {
+        state.marked = state.marked + state.items[value].price
+      } else {
+        state.marked = state.marked - state.items[value].price
+      }
 
       localStorage.setItem(
         "shopping-list-redux:state-1.0",
