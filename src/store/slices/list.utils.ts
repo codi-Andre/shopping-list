@@ -20,3 +20,7 @@ export function formatUserInput(
 
   return newProduct
 }
+
+function formatToTwoDecimals(num: number) {
+  return parseFloat(num.toFixed(2))
+}

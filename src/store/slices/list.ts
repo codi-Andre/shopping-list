@@ -5,27 +5,27 @@ import { formatUserInput } from "./list.utils"
 export interface Product {
   id: string
   name: string
-  quantity?: number
+  quantity: number
   price: number
   checked: boolean
 }
 
 interface ListState {
   items: Product[]
-  marked: number
+  itemsChecked: number
   total: number
   isLoading: boolean
 }
 
 const initialState: ListState = {
   items: [],
-  marked: 0,
+  itemsChecked: 0,
   total: 0,
   isLoading: false
 }
 
 export const loadList = createAsyncThunk("list/load", async () => {
-  const delay = new Promise<string>((resolve) => setTimeout(resolve, 2000))
+  const delay = new Promise((resolve) => setTimeout(resolve, 1000))
   await delay
 
   const data = JSON.parse(
@@ -52,7 +52,7 @@ export const listSlice = createSlice({
       }
 
       state.items = [...state.items, newProduct]
-      state.total = state.total + newProduct.price
+      state.total = state.total + newProduct.price * newProduct.quantity
 
       localStorage.setItem(
         "shopping-list-redux:state-1.0",
@@ -63,10 +63,11 @@ export const listSlice = createSlice({
       state.items = state.items.filter(
         (product) => product.id !== action.payload.id
       )
-      state.total = state.total - action.payload.price
+      state.total = state.total - action.payload.price * action.payload.quantity
 
       if (action.payload.checked) {
-        state.marked = state.marked - action.payload.price
+        state.itemsChecked =
+          state.itemsChecked - action.payload.price * action.payload.quantity
       }
 
       localStorage.setItem(
@@ -74,27 +75,39 @@ export const listSlice = createSlice({
         JSON.stringify(state.items)
       )
     },
-    mark: (state, action: PayloadAction<string>) => {
-      const value = state.items.findIndex(
+    checkItem: (state, action: PayloadAction<string>) => {
+      const index = state.items.findIndex(
         (product) => product.id === action.payload
       )
 
-      if (value < 0) {
+      if (index < 0) {
         return
       }
 
-      state.items[value].checked = !state.items[value].checked
+      state.items[index].checked = !state.items[index].checked
 
-      if (state.items[value].checked) {
-        state.marked = state.marked + state.items[value].price
+      if (state.items[index].checked) {
+        state.itemsChecked =
+          state.itemsChecked +
+          state.items[index].price * state.items[index].quantity
       } else {
-        state.marked = state.marked - state.items[value].price
+        state.itemsChecked =
+          state.itemsChecked -
+          state.items[index].price * state.items[index].quantity
       }
 
       localStorage.setItem(
         "shopping-list-redux:state-1.0",
         JSON.stringify(state.items)
       )
+    },
+    uncheckAll: (state) => {
+      state.itemsChecked = 0
+      state.items = state.items.map((product) => {
+        product.checked = false
+
+        return product
+      })
     }
   },
   extraReducers(builder) {
@@ -102,19 +115,22 @@ export const listSlice = createSlice({
       state.isLoading = true
     }),
       builder.addCase(loadList.fulfilled, (state, action) => {
-        const marked = action.payload.reduce(
-          (acc, cur) => (cur.checked ? acc + cur.price : acc),
+        const checked = action.payload.reduce(
+          (acc, cur) => (cur.checked ? acc + cur.price * cur.quantity : acc),
           0
         )
-        const total = action.payload.reduce((acc, cur) => acc + cur.price, 0)
+        const total = action.payload.reduce(
+          (acc, cur) => acc + cur.price * cur.quantity,
+          0
+        )
 
-        state.isLoading = false
         state.items = action.payload
-        state.marked = marked
+        state.itemsChecked = checked
         state.total = total
+        state.isLoading = false
       })
   }
 })
 
 export const list = listSlice.reducer
-export const { add, mark, remove } = listSlice.actions
+export const { add, checkItem, uncheckAll, remove } = listSlice.actions
