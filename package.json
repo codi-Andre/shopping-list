@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "^1.0.7",
     "@reduxjs/toolkit": "^1.9.6",
     "nanoid": "^5.0.1",
     "next": "latest",
