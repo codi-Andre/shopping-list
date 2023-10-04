@@ -29,9 +29,34 @@ export const loadList = createAsyncThunk("list/load", async () => {
   await delay
 
   const data = JSON.parse(
-    localStorage.getItem("shopping-list-redux:state-1.0") || ""
+    localStorage.getItem("shopping-list-redux:state-1.0") || "[]"
   )
-  if (!data) return [] as Product[]
+
+  if (!data || data.length === 0 || data === null) {
+    return [
+      {
+        id: "exampleItem1",
+        name: "Milk",
+        quantity: 3,
+        price: 5.6,
+        checked: false
+      },
+      {
+        id: "exampleItem2",
+        name: "Eggs",
+        quantity: 12,
+        price: 0.43,
+        checked: true
+      },
+      {
+        id: "exampleItem3",
+        name: "Flour",
+        quantity: 1,
+        price: 7,
+        checked: false
+      }
+    ]
+  }
 
   return data as Product[]
 })
