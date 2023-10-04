@@ -30,6 +30,12 @@ const config: Config = {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         accent: "var(--color-accent)"
+      },
+      boxShadow: {
+        "btn-p": "0 4px rgba(33, 253, 176, 1)",
+        "btn-s": "0 4px rgba(1, 75, 49, 1)",
+        "btn-pa": "0 2px rgba(33, 253, 176, 1)",
+        "btn-sa": "0 2px rgba(1, 75, 49, 1)"
       }
     }
   },

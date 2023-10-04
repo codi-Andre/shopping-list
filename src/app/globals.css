@@ -10,6 +10,7 @@
     --color-secondary: #b4fee4;
     --color-accent: #02e394;
   }
+
   .dark {
     --color-text: #fafffd;
     --color-background: #000a06;
@@ -28,6 +29,10 @@
 
   h3 {
     @apply text-base font-medium;
+  }
+
+  input {
+    @apply rounded-lg border-2 border-solid border-gray-400 bg-background text-text;
   }
 
   /* xs */
@@ -77,12 +82,15 @@
 }
 
 @layer components {
+  .app-view {
+    max-height: calc(100vh - 100px);
+  }
+
   .btn {
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     box-shadow: 0 4px var(--color-secondary);
-    transition: translate 0.5s;
   }
 
   .btn span {
@@ -95,12 +103,11 @@
     position: absolute;
     opacity: 0;
     top: 0;
-    right: 0;
     transition: 0.5s;
   }
 
   .btn:hover span {
-    padding-right: 1rem;
+    padding-right: 1.5rem;
   }
 
   .btn:hover span:after {
@@ -111,6 +118,29 @@
   .btn:active {
     box-shadow: 0 2px var(--color-accent);
     transform: translateY(2px);
+  }
+
+  .data-table table {
+    width: 100%;
+  }
+
+  .data-table thead th {
+    @apply sticky top-[-2px]  bg-background py-4;
+  }
+
+  .data-table tfoot th,
+  .data-table tfoot td {
+    @apply sticky bottom-[-10px] border-t-2 border-solid border-secondary bg-background py-4;
+  }
+
+  .data-table tbody tr {
+    border-top: solid 2px var(--color-secondary);
+  }
+
+  .data-table th,
+  .data-table td {
+    text-align: center;
+    padding-block: 0.5rem;
   }
 }
 
