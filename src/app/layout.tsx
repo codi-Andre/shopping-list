@@ -19,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html className="dark" lang="en">
-      <body className={`${roboto.className} bg-background text-text`}>
+      <body
+        className={`${roboto.className} flex h-screen flex-col overflow-hidden bg-background text-text`}
+      >
         {children}
       </body>
     </html>
