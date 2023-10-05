@@ -1,4 +1,4 @@
-import logo from "@/assets/icons/shopping-basket.png"
+import logo from "@/assets/shopping-basket.png"
 import { Providers } from "@/components/providers"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
